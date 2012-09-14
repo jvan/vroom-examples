@@ -1,6 +1,7 @@
 #!/usr/bin/env vroom
 
 from vroom import *
+
 import math
 
 # Functions
@@ -33,19 +34,19 @@ def draw():
    sphere(Global.size)
    popMatrix()
 
-def button_press(cursor):
-   print 'button_press: pos={}'.format(cursor)
-   if hit(cursor):
+def button_press(pos, button):
+   print 'button_press: pos={}'.format(pos)
+   if hit(pos):
       print '!!!!! HIT !!!!!'
       Global.dragging = True
     
-def button_release(cursor):
-   print 'button_release: pos={}'.format(cursor)
+def button_release(pos, button):
+   print 'button_release: pos={}'.format(pos)
    Global.dragging = False
 
-def motion(cursor):
+def motion(pos, button):
    if Global.dragging:
-      Global.position = cursor
+      Global.position = pos
    else:
-      Global.hover = hit(cursor) 
+      Global.hover = hit(pos) 
 
