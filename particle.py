@@ -1,5 +1,6 @@
 #!/usr/bin/env vroom
 from vroom import *
+
 import random
 
 class Particle:
@@ -67,7 +68,8 @@ particles = ParticleEngine()
 
 def gl_init():
    global particles
-   particles.array.sprite('share/particle.bmp')
+   texture_file = get_resource('particle.bmp')
+   particles.array.sprite(texture_file)
 
 def draw():
    lighting(False)
