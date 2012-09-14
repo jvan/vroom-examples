@@ -3,11 +3,11 @@
 from vroom import *
 from random import randint
 
-def render_cubes():
+def render_cubes(button):
    Global.Size = 2.0
    Global.RenderFunc = cube
 
-def render_spheres():
+def render_spheres(button):
    Global.Size = 1.0
    Global.RenderFunc = sphere
 

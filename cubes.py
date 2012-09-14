@@ -4,10 +4,10 @@ from vroom import *
 
 # Functions
 
-def toggleLighting():
+def toggleLighting(toggle):
    Global.UseLighting = not Global.UseLighting
 
-def toggleColor():
+def toggleColor(toggle):
    Global.UseColor = not Global.UseColor
 
 def setColor(c):
@@ -27,7 +27,7 @@ def init():
    NUM_CUBES = 1000
    Global.vertices = list(random_vertex_generator(NUM_CUBES, -100.0, 100.0))
    Global.colors = list(random_color_generator(NUM_CUBES))
-   
+
 def draw():
    lighting(Global.UseLighting)
    

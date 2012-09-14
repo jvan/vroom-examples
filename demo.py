@@ -4,25 +4,25 @@ from vroom import *
 
 # Functions
 
-def toggleRotate():
+def toggleRotate(toggle):
    Global.animate = not Global.animate
 
 # vroom callbacks
 
 def init():
    setMainMenuTitle('Vroom Demo')
-   addMainMenuItem('Reset ResetNavigation', centerDisplay)
    addMainMenuItem('Toggle Rotate', toggleRotate, type='toggle')
 
    Global.animate = False
    Global.modelAngles = [0.0, 0.0, 0.0]
 
 def draw():
-   lighting(False);
-   color(1.0)
+   lighting(False)
+   color(white)
 
    pushMatrix()
    rotate(Global.modelAngles)
+   translate(-2.0, -2.0, -2.0)
    cube(4.0)
    popMatrix()
 
