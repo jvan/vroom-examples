@@ -28,7 +28,7 @@ def init():
          Global.labels.append(('{:.1f}'.format(magnitude), epicenter))
 
    Global.points = PointCloud(vertices, colors)
-   Global.center = [-1.0*x for x in Global.points.center()]
+   Global.center = center(vertices)
 
 def gl_init():
    spriteFile = get_resource('particle.bmp')
