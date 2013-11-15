@@ -14,7 +14,6 @@ def gl_init():
    textureFile = get_resource('particle.bmp')
    Global.points.sprite(textureFile)
 
-def draw():
+def display():
    lighting(False)
    Global.points.draw()
-

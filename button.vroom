@@ -13,7 +13,7 @@ def init():
    addMainMenuItem('clear', clearPoints)
    Global.points = point_list()
 
-def draw():
+def display():
    material(green)
    Global.points.for_each(sphere, 1.0, style='solid')
 

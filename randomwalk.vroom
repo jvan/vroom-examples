@@ -13,10 +13,10 @@ def gl_init():
    Global.colors = [color_map(Global.MAX_POINTS-i, Global.MAX_POINTS) 
          for i in range(Global.MAX_POINTS)]
    
-   Global.buffer = GLArray(Global.points)
+   Global.buffer = Buffer(Global.points)
    Global.buffer.renderMode(GL_LINE_STRIP)
 
-def draw():
+def display():
    lighting(False)
    lineWidth(3.0)
    Global.buffer.draw()
@@ -34,6 +34,6 @@ def frame():
    if len(Global.points) > Global.MAX_POINTS:
       Global.points.pop(0)
 
-   Global.buffer = GLArray(Global.points, Global.colors[:len(Global.points)])
+   Global.buffer = Buffer(Global.points, Global.colors[:len(Global.points)])
    Global.buffer.renderMode(GL_LINE_STRIP)
    

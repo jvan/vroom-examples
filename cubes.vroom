@@ -28,7 +28,7 @@ def init():
    Global.vertices = list(random_vertex_generator(NUM_CUBES, -100.0, 100.0))
    Global.colors = list(random_color_generator(NUM_CUBES))
 
-def draw():
+def display():
    lighting(Global.UseLighting)
    
    cube_style = 'solid' if Global.UseLighting else 'wireframe'

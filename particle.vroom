@@ -71,7 +71,7 @@ def gl_init():
    texture_file = get_resource('particle.bmp')
    particles.array.sprite(texture_file)
 
-def draw():
+def display():
    lighting(False)
    particles.draw()
 

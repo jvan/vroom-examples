@@ -37,7 +37,7 @@ def gl_init():
    fontFile = get_resource('fonts/DroidSans.ttf')
    textFont(fontFile)
 
-def draw():
+def display():
    lighting(False)
 
    pushMatrix()

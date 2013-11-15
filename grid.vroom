@@ -32,7 +32,7 @@ def init():
 
    Global.RenderFunc = cube
 
-def draw():
+def display():
 
    # Draw grid
    lighting(False)

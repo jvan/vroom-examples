@@ -16,7 +16,7 @@ for (n1, n2) in graph.edges():
    edges.append(nodes[n1][0])
    edges.append(nodes[n2][0])
 
-edge_array = GLArray(edges)
+edge_array = Buffer(edges)
 edge_array.renderMode('lines')
 
 def draw_nodes():
@@ -36,7 +36,7 @@ def draw_edges():
    color(1,1,1,0.1)
    edge_array.draw()
 
-def draw():
+def display():
    draw_nodes()
    lighting(False)
    draw_edges()

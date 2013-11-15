@@ -16,7 +16,7 @@ def init():
    Global.animate = False
    Global.modelAngles = [0.0, 0.0, 0.0]
 
-def draw():
+def display():
    lighting(False)
    color(white)
 

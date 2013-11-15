@@ -19,7 +19,7 @@ def init():
    Global.dragging = False
    Global.hover = False
 
-def draw():
+def display():
    lighting(False)
 
    if Global.dragging:
