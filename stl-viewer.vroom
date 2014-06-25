@@ -1,0 +1,39 @@
+#!/usr/bin/env vroom-wrapper
+
+from vroom import *
+
+def frame(): pass
+
+class stl_parser:
+  def __init__(self, filename):
+    self.vertices = []
+    self.normals = []
+    for line in open(filename).readlines():
+      if line.strip().startswith('vertex'):
+        self.vertices.append(map(float, line.split()[-3:]))
+      elif line.strip().startswith('facet normal'):
+        for i in range(3):
+          self.normals.append(map(float, line.split()[-3:]))
+
+def init():
+  filename = get_resource('companion_cube.stl')
+  parser = stl_parser(filename)
+
+  Global.model = Buffer(parser.vertices)
+  Global.model.loadNormalData(parser.normals)
+  Global.model.renderMode('triangles')
+
+  Global.lighting = BooleanOption()
+
+  setMainMenuTitle('stl viewer')
+  addMainMenuItem('lighting', lambda x: Global.lighting.toggle(), type='toggle')
+
+def display():
+  lighting(Global.lighting)
+
+  glEnable(GL_COLOR_MATERIAL)
+  glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE)
+
+  style = 'solid' if Global.lighting else 'wireframe'
+
+  Global.model.draw(style=style)
