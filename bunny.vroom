@@ -1,0 +1,27 @@
+#!/usr/bin/env vroom-wrapper
+
+from vroom import *
+import vroom.extra.PLY
+
+def frame(): pass
+
+def init():
+   filename = get_resource('bunny.ply')
+
+   Global.mesh = Mesh.from_ply(filename, False)
+
+   Global.lighting = BooleanOption()
+
+   addMainMenuItem('lighting', lambda x: Global.lighting.toggle(), type='toggle')
+   addMainMenuItem('debug', lambda x: tracker_debug(x.getToggle()), type='toggle')
+
+def gl_init():
+   Global.mesh.enable_tracking()
+
+def display():
+   lighting(Global.lighting)
+
+   material(green) if Global.lighting else color(green)
+   style = 'solid' if Global.lighting else 'wireframe'
+
+   Global.mesh.draw(style=style)
