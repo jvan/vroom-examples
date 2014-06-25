@@ -1,4 +1,4 @@
-#!/usr/bin/env vroom
+#!/usr/bin/env vroom-wrapper
 from vroom import *
 
 import random
